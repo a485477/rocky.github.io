@@ -87,7 +87,7 @@
 <meta property="og:description" content="自从使用h5以来，一直对这些新标签的语义化有些模糊，接下来就是对常用的一些标签进行一个梳理，首先上一个大概的结构标签示意图：  结构标签header、footer 顾名思义,header就是一般是放在内容头部，通常作为一个页面的标题部分，footer放在底部，用于脚注信息  12345&amp;lt;body&amp;gt;    &amp;lt;header&amp;gt;我是头部组件&amp;lt;/header&amp;gt;    //">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://a485477.github.io/rocky.github.io/2018/12/02/h5语义化标签总结/标签示意图.png">
-<meta property="og:updated_time" content="2018-12-15T07:33:28.471Z">
+<meta property="og:updated_time" content="2018-12-23T04:47:12.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5语义化标签总结">
 <meta name="twitter:description" content="自从使用h5以来，一直对这些新标签的语义化有些模糊，接下来就是对常用的一些标签进行一个梳理，首先上一个大概的结构标签示意图：  结构标签header、footer 顾名思义,header就是一般是放在内容头部，通常作为一个页面的标题部分，footer放在底部，用于脚注信息  12345&amp;lt;body&amp;gt;    &amp;lt;header&amp;gt;我是头部组件&amp;lt;/header&amp;gt;    //">
@@ -192,6 +192,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/rocky.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/rocky.github.io/archives/" rel="section">
             
@@ -274,6 +284,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/rocky.github.io/categories/html/" itemprop="url" rel="index">
+                    <span itemprop="name">html</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -306,35 +338,35 @@
 <h2 id="结构标签"><a href="#结构标签" class="headerlink" title="结构标签"></a>结构标签</h2><h3 id="header、footer"><a href="#header、footer" class="headerlink" title="header、footer"></a>header、footer</h3><blockquote>
 <p>顾名思义,header就是一般是放在内容头部，通常作为一个页面的标题部分，footer放在底部，用于脚注信息</p>
 </blockquote>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;header&gt;我是头部组件&lt;/header&gt;</span><br><span class="line">    // 其他内容</span><br><span class="line">    &lt;footer&gt;我是底部组件&lt;/footer&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span>我是头部组件<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    // 其他内容</span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span>我是底部组件<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="nav导航标签"><a href="#nav导航标签" class="headerlink" title="nav导航标签"></a>nav导航标签</h3><blockquote>
 <p>一般用于页面导航的链接组</p>
 </blockquote>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;header&gt;</span><br><span class="line">    &lt;nav&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;#内容1&quot;&gt;导航1&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;#内容2&quot;&gt;导航2&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/nav&gt;</span><br><span class="line">&lt;/header&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#内容1"</span>&gt;</span>导航1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#内容2"</span>&gt;</span>导航2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="main"><a href="#main" class="headerlink" title="main"></a>main</h3><blockquote>
 <p>主要区域内容<br>它是表达了document中的body的主要内容，但不能在一个document中有多个main,不能在article,aside,footer,header或者nav中包含main</p>
 </blockquote>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;main&gt;</span><br><span class="line">    // 主要区域内容</span><br><span class="line">&lt;/main&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">    // 主要区域内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="article"><a href="#article" class="headerlink" title="article"></a>article</h3><blockquote>
 <p>article代表页面中独立的、完整的、可以被外部引用的一块内容，比如一篇博客</p>
 </blockquote>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;article&gt;</span><br><span class="line">    &lt;header&gt;</span><br><span class="line">        &lt;h1&gt;前端开发&lt;/h1&gt;</span><br><span class="line">    &lt;/header&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">    &lt;footer&gt;</span><br><span class="line">        &lt;p&gt;作者信息： rockey&lt;/p&gt;</span><br><span class="line">    &lt;/footer&gt;</span><br><span class="line">&lt;/article&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>前端开发<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>作者信息： rockey<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="section"><a href="#section" class="headerlink" title="section"></a>section</h3><blockquote>
 <p>section一般用于对页面上的内容进行分块，一个section元素应该包含标题和内容<br>可以理解为一个section元素就是可以单独存储到数据库中的一条数据</p>
 </blockquote>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;section&gt;</span><br><span class="line">    &lt;h3&gt;食物：&lt;/h3&gt;</span><br><span class="line">    &lt;p&gt;新鲜的苹果&lt;/p&gt;</span><br><span class="line">&lt;/section&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>食物：<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>新鲜的苹果<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="aside"><a href="#aside" class="headerlink" title="aside"></a>aside</h3><blockquote>
 <p>aside元素用于表明当前页面的附属信息部分，它可以包含与主题内容相关的引用、侧边栏、广告等，以及其他补充的部分</p>
 </blockquote>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;aside&gt;</span><br><span class="line">    &lt;nav&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;#内容1&quot;&gt;文章一&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;a href=&quot;#内容2&quot;&gt;文章二&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/nav&gt;</span><br><span class="line">&lt;/aside&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#内容1"</span>&gt;</span>文章一<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#内容2"</span>&gt;</span>文章二<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="address"><a href="#address" class="headerlink" title="address"></a>address</h3><blockquote>
 <p>address一般用于呈现联系信息</p>
 </blockquote>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;address&gt;</span><br><span class="line">    &lt;a href=&quot;url&quot;&gt;微博&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;url&quot;&gt;qq&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;url&quot;&gt;微信&lt;/a&gt;</span><br><span class="line">&lt;/address&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">address</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"url"</span>&gt;</span>微博<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"url"</span>&gt;</span>qq<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"url"</span>&gt;</span>微信<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">address</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="figure"><a href="#figure" class="headerlink" title="figure"></a>figure</h3><blockquote>
 <p>figure元素表示一段独立的流内容，使用figcaption元素为figure的标题<br>最典型的的应用，本篇文章的代码都包含在figure标签下</p>
 </blockquote>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;figure&gt;</span><br><span class="line">    &lt;figcaption&gt;爱迪生&lt;/figcaption&gt;</span><br><span class="line">    &lt;p&gt;他是个大发明家&lt;/p&gt;</span><br><span class="line">&lt;/figure&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span>爱迪生<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>他是个大发明家<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <h2 id="非结构标签"><a href="#非结构标签" class="headerlink" title="非结构标签"></a>非结构标签</h2><h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><blockquote>
 <p>定义视频</p>
 </blockquote>
@@ -347,7 +379,7 @@
 <h3 id="ruby"><a href="#ruby" class="headerlink" title="ruby"></a>ruby</h3><blockquote>
 <p>ruby表示注释</p>
 </blockquote>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ruby&gt;汉&lt;rp&gt;(&lt;/rp&gt;&lt;rt&gt;Han&lt;/rt&gt;&lt;rp&gt;)&lt;/rp&gt;&lt;/ruby&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ruby</span>&gt;</span>汉<span class="tag">&lt;<span class="name">rp</span>&gt;</span>(<span class="tag">&lt;/<span class="name">rp</span>&gt;</span><span class="tag">&lt;<span class="name">rt</span>&gt;</span>Han<span class="tag">&lt;/<span class="name">rt</span>&gt;</span><span class="tag">&lt;<span class="name">rp</span>&gt;</span>)<span class="tag">&lt;/<span class="name">rp</span>&gt;</span><span class="tag">&lt;/<span class="name">ruby</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h3><blockquote>
 <p>用于绘制图形</p>
 </blockquote>
@@ -371,6 +403,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/rocky.github.io/2018/12/23/从输入URL到页面展现/" rel="prev" title="从输入URL到页面展现应该了解的知识点总结">
+                从输入URL到页面展现应该了解的知识点总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -444,12 +492,21 @@
               
                 <a href="/rocky.github.io/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/rocky.github.io/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
