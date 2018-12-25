@@ -89,7 +89,7 @@
 <meta property="og:image" content="https://a485477.github.io/rocky.github.io/2018/12/23/从输入URL到页面展现/loop.jpg">
 <meta property="og:image" content="https://a485477.github.io/rocky.github.io/2018/12/23/从输入URL到页面展现/dns.png">
 <meta property="og:image" content="https://a485477.github.io/rocky.github.io/2018/12/23/从输入URL到页面展现/three.png">
-<meta property="og:updated_time" content="2018-12-23T08:04:26.169Z">
+<meta property="og:updated_time" content="2018-12-25T12:35:39.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从输入URL到页面展现应该了解的知识点总结">
 <meta name="twitter:description" content="以前一直对这块只有个大致的印象，只知道先去请求后端，拿到数据然后渲染整个页面内容，深入了解之后才知道这里面还有这么多知识点，本篇文章就是对此梳理和总结,直奔主题： 从输入URL到页面展现到底经过了什么过程  浏览器获取url，进行dns解析，如果输入的是ip，此步骤省略 根据解析得到ip+端口，发起http请求，包含请求头，请求体 请求到达传输层，tcp协议为传输报文提供可靠的字节流传输服务，它通">
@@ -349,7 +349,7 @@
 </ol>
 </blockquote>
 <p><img src="/rocky.github.io/2018/12/23/从输入URL到页面展现/loop.jpg" alt="过程示意图"></p>
-<h4 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h4><p>什么事DNS解析？<br>计算机真实的地址都是由一串数值组成的，为了方便记忆，最终输出的都是类似于<a href="http://www.baidu.com这样的域名，dns解析就是负责找到域名对应的ip" target="_blank" rel="noopener">www.baidu.com这样的域名，dns解析就是负责找到域名对应的ip</a><br>具体过程如下：</p>
+<h4 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h4><p>什么是DNS解析？<br>计算机真实的地址都是由一串数值组成的，为了方便记忆，最终输出的都是类似于<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 这样的域名，dns解析就是负责找到域名对应的ip<br>具体过程如下：</p>
 <blockquote>
 <ol>
 <li>请求会到浏览器的缓存中寻找解析记录，如果命中则返回结果，否则往下</li>
@@ -420,6 +420,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/rocky.github.io/2018/12/25/浏览器缓存/" rel="prev" title="浏览器缓存">
+                浏览器缓存 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -496,7 +500,7 @@
               
                 <a href="/rocky.github.io/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

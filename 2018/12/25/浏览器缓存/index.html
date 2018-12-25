@@ -79,13 +79,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rocky的博客">
-<meta property="og:url" content="https://a485477.github.io/rocky.github.io/index.html">
+<meta name="description" content="以前常常接触到缓存机制，一直仅限于h5 的localStorage、sessionStorage以及cookie，其他的缓存机制都是草草了解一下，直到和后端讨论项目性能优化方案，才发现这方面知识的匮乏。所以潜心研究一段时间，本编文章将总结浏览器缓存-强缓存与协商缓存的知识点。  首先得了解现在所有的缓存机制，其中的HTTP header缓存机制，以及相关的服务器缓存划重点，以下为示意图： 三级缓">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器缓存">
+<meta property="og:url" content="https://a485477.github.io/rocky.github.io/2018/12/25/浏览器缓存/index.html">
 <meta property="og:site_name" content="Rocky的博客">
+<meta property="og:description" content="以前常常接触到缓存机制，一直仅限于h5 的localStorage、sessionStorage以及cookie，其他的缓存机制都是草草了解一下，直到和后端讨论项目性能优化方案，才发现这方面知识的匮乏。所以潜心研究一段时间，本编文章将总结浏览器缓存-强缓存与协商缓存的知识点。  首先得了解现在所有的缓存机制，其中的HTTP header缓存机制，以及相关的服务器缓存划重点，以下为示意图： 三级缓">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://a485477.github.io/rocky.github.io/2018/12/25/浏览器缓存/cache.png">
+<meta property="og:updated_time" content="2018-12-25T15:03:25.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rocky的博客">
+<meta name="twitter:title" content="浏览器缓存">
+<meta name="twitter:description" content="以前常常接触到缓存机制，一直仅限于h5 的localStorage、sessionStorage以及cookie，其他的缓存机制都是草草了解一下，直到和后端讨论项目性能优化方案，才发现这方面知识的匮乏。所以潜心研究一段时间，本编文章将总结浏览器缓存-强缓存与协商缓存的知识点。  首先得了解现在所有的缓存机制，其中的HTTP header缓存机制，以及相关的服务器缓存划重点，以下为示意图： 三级缓">
+<meta name="twitter:image" content="https://a485477.github.io/rocky.github.io/2018/12/25/浏览器缓存/cache.png">
 
 
 
@@ -115,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://a485477.github.io/rocky.github.io/">
+  <link rel="canonical" href="https://a485477.github.io/rocky.github.io/2018/12/25/浏览器缓存/">
 
 
 
 
 
-  <title>Rocky的博客</title>
+  <title>浏览器缓存 | Rocky的博客</title>
   
 
 
@@ -140,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -224,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -256,9 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rocky.github.io/2018/12/25/浏览器缓存/" itemprop="url">浏览器缓存</a></h1>
+          <h1 class="post-title" itemprop="name headline">浏览器缓存</h1>
         
 
         <div class="post-meta">
@@ -330,21 +333,168 @@
       
 
       
-        
-          
-          
-以前常常接触到缓存机制，一直仅限于h5 的localStorage、sessionStorage以及cookie，其他的缓存机制都是草草了解一下，直到和后端讨论项目性能优化方案，才发现这方面知识的匮乏。所以潜心研究一段时间，本编文章将总结浏览器缓存-强缓存与协商缓存的知识点。
+        <blockquote>
+<p>以前常常接触到缓存机制，一直仅限于h5 的<code>localStorage</code>、<code>sessionStorage</code>以及<code>cookie</code>，其他的缓存机制都是草草了解一下，直到和后端讨论项目性能优化方案，才发现这方面知识的匮乏。<br>所以潜心研究一段时间，本编文章将总结浏览器缓存-强缓存与协商缓存的知识点。</p>
+</blockquote>
+<p>首先得了解现在所有的缓存机制，其中的HTTP header缓存机制，以及相关的服务器缓存划重点，以下为示意图：<br><img src="/rocky.github.io/2018/12/25/浏览器缓存/cache.png" alt="缓存示意图"></p>
+<h3 id="三级缓存原理"><a href="#三级缓存原理" class="headerlink" title="三级缓存原理"></a>三级缓存原理</h3><blockquote>
+<p>浏览器读取缓存也有个优先级</p>
+</blockquote>
+<ol>
+<li>先去内存中查看，如果有，读取</li>
+<li>如果内存中没有，从磁盘中获取</li>
+<li>如果硬盘也没有，那么进行网络请求</li>
+<li>加载到的资源缓存至硬盘和内存</li>
+</ol>
+<h3 id="强缓存与协商缓存的区别"><a href="#强缓存与协商缓存的区别" class="headerlink" title="强缓存与协商缓存的区别"></a>强缓存与协商缓存的区别</h3><blockquote>
+<p>强缓存： 当设置了<code>expires</code>或者<code>cache-control</code>,且资源没过期的时候，从缓存中获取资源<br>协商缓存： 当字段<code>expires</code>或者<code>cache-control</code>的值过期以后,会发送请求至服务器，服务器再判断相关的头部字段<code>Last-Modified &amp; If-Modified-Since</code>或者<code>ETag &amp; If-None-Match</code>，决定是否采用缓存</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>获取资源</th>
+<th>状态码</th>
+<th>发送请求至服务器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>强缓存</td>
+<td>从缓存中获取</td>
+<td>200</td>
+<td>否，直接从缓存取</td>
+</tr>
+<tr>
+<td>协商缓存</td>
+<td>从缓存中获取或者从服务器获取</td>
+<td>304或者200</td>
+<td>是，和服务器协商以后决定使用缓存还是返回新资源</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p>浏览器发起请求，response头部添加字段<code>Expires</code>，设置一个GMT格式的时间，第一次请求的时候，浏览器会把资源和<code>Expires</code>值缓存起来，再次请求时如果命中，将直接从缓存中读取。</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> expires = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">expires.setTime(expires.getTime() + <span class="number">10000</span>) <span class="comment">// 在初次请求的时间基础上10s内有效</span></span><br><span class="line"></span><br><span class="line">ctx.set(<span class="string">'Expires'</span>, expires.toUTCString())</span><br></pre></td></tr></table></figure></div>
+<h3 id="cache-control"><a href="#cache-control" class="headerlink" title="cache-control"></a>cache-control</h3><p><code>cache-control</code>和<code>Expires</code>的基本作用其实一样，但是<code>Expires</code>太单调了，只能设置时间，而相对的<code>cache-control</code>的功能就丰富多了，可以实现更复杂的缓存机制，优先级也比<code>Expires</code>高。<br><code>cache-control</code>分两种情况，请求时设置和响应时设置，两种情况的设置值不太一样,客户端设置的情况比较少,以下摘抄一份<a href="https://book.douban.com/subject/25863515/" target="_blank" rel="noopener">图解HTTP</a>的字段说明，</p>
+<ul>
+<li>request</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no-store</td>
+<td>无</td>
+<td>不缓存请求和响应的任何内容</td>
+</tr>
+<tr>
+<td>no-cache</td>
+<td>无</td>
+<td>强制向缓存获取资源</td>
+</tr>
+<tr>
+<td>max-age=(time/秒)</td>
+<td>必须</td>
+<td>响应的最大age值</td>
+</tr>
+<tr>
+<td>max-stale=(time/秒)</td>
+<td>可省略</td>
+<td>接收以过期的响应</td>
+</tr>
+<tr>
+<td>min-fresh=(time/秒)</td>
+<td>必须</td>
+<td>期望在指定时间内的响应仍有效</td>
+</tr>
+<tr>
+<td>no-transform</td>
+<td>无</td>
+<td>代理不可更改媒体类型</td>
+</tr>
+<tr>
+<td>only-if-cache</td>
+<td>无</td>
+<td>从缓存获取资源</td>
+</tr>
+<tr>
+<td>cache-extension</td>
+<td>无</td>
+<td>自定义指令</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>response</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no-store</td>
+<td>无</td>
+<td>不缓存请求和响应的任何内容</td>
+</tr>
+<tr>
+<td>no-cache</td>
+<td>无</td>
+<td>缓存前都要与服务器查询是否有效</td>
+</tr>
+<tr>
+<td>max-age=(time/秒)</td>
+<td>必须</td>
+<td>设置过期时间</td>
+</tr>
+<tr>
+<td>s-maxage=(time/秒)</td>
+<td>必须</td>
+<td>设置代理服务器过期时间</td>
+</tr>
+<tr>
+<td>public</td>
+<td>无</td>
+<td>共享缓存</td>
+</tr>
+<tr>
+<td>private</td>
+<td>可省略</td>
+<td>仅针对特定用户响应缓存</td>
+</tr>
+<tr>
+<td>no-transform</td>
+<td>无</td>
+<td>代理不可更改媒体类型</td>
+</tr>
+<tr>
+<td>must-revalidate</td>
+<td>无</td>
+<td>可缓存但必须向源服务器进行确认</td>
+</tr>
+<tr>
+<td>proxy-revalidate</td>
+<td>无</td>
+<td>代理服务器对缓存的有效性再进行确认</td>
+</tr>
+<tr>
+<td>cache-extension</td>
+<td>–</td>
+<td>自定义指令</td>
+</tr>
+</tbody>
+</table>
 
-首先得了解现在所有
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rocky.github.io/2018/12/25/浏览器缓存/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
     
@@ -361,164 +511,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://a485477.github.io/rocky.github.io/rocky.github.io/2018/12/23/从输入URL到页面展现/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rocky.github.io/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rocky的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rocky.github.io/2018/12/23/从输入URL到页面展现/" itemprop="url">从输入URL到页面展现应该了解的知识点总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-23T12:48:18+08:00">
-                2018-12-23
-              </time>
+              <a href="/rocky.github.io/2018/12/23/从输入URL到页面展现/" rel="next" title="从输入URL到页面展现应该了解的知识点总结">
+                <i class="fa fa-chevron-left"></i> 从输入URL到页面展现应该了解的知识点总结
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/rocky.github.io/categories/http/" itemprop="url" rel="index">
-                    <span itemprop="name">http</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          以前一直对这块只有个大致的印象，只知道先去请求后端，拿到数据然后渲染整个页面内容，深入了解之后才知道这里面还有这么多知识点，本篇文章就是对此梳理和总结,直奔主题：
-从输入URL到页面展现到底经过了什么过程
-
-浏览器获取url，进行dns解析，如果输入的是ip，此步骤省略
-根据解析得到ip+端口，发起
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rocky.github.io/2018/12/23/从输入URL到页面展现/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -528,163 +542,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://a485477.github.io/rocky.github.io/rocky.github.io/2018/12/02/h5语义化标签总结/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rocky.github.io/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rocky的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rocky.github.io/2018/12/02/h5语义化标签总结/" itemprop="url">H5语义化标签总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-02T13:57:13+08:00">
-                2018-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/rocky.github.io/categories/html/" itemprop="url" rel="index">
-                    <span itemprop="name">html</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          自从使用h5以来，一直对这些新标签的语义化有些模糊，接下来就是对常用的一些标签进行一个梳理，首先上一个大概的结构标签示意图：
-
-结构标签header、footer
-顾名思义,header就是一般是放在内容头部，通常作为一个页面的标题部分，footer放在底部，用于脚注信息
-
-12345&lt;bod
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rocky.github.io/2018/12/02/h5语义化标签总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -692,6 +554,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -712,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -764,6 +639,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#三级缓存原理"><span class="nav-number">1.</span> <span class="nav-text">三级缓存原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强缓存与协商缓存的区别"><span class="nav-number">2.</span> <span class="nav-text">强缓存与协商缓存的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Expires"><span class="nav-number">3.</span> <span class="nav-text">Expires</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cache-control"><span class="nav-number">4.</span> <span class="nav-text">cache-control</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -897,6 +788,10 @@
   
 
   
+  <script type="text/javascript" src="/rocky.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/rocky.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
